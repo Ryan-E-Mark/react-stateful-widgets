@@ -43,17 +43,17 @@ export default function Input() {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
     const { value } = evt.target;
-
+    
     /* STEP 4 */
   };
   const reset = () => {
-    /* STEP 5 */
+    setInputValue('');
   };
 
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color:{inputValue > 10 ? 'crimson' : 'royalblue'}
+    // color: {inputValue > 10 ? 'crimson' : 'royalblue'}
   };
 
   return (
@@ -61,7 +61,7 @@ export default function Input() {
       <h2>Input</h2>
       <div id='output' style={style}></div> {/* STEP 3 */}
       <div>
-        <input id='input' type='text' onChange={changeInput} /> {/* STEP 6 */}
+        <input id='input' type='text' onChange={changeInput} value={inputValue}/> {/* STEP 6 */}
         <button id='resetInput' onClick={reset}>Reset</button>
       </div>
     </div>
