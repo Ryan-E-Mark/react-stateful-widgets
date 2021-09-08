@@ -45,6 +45,7 @@ export default function Input() {
     const { value } = evt.target;
     
     /* STEP 4 */
+    setInputValue(value);
   };
   const reset = () => {
     setInputValue('');
@@ -53,13 +54,13 @@ export default function Input() {
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    // color: {inputValue > 10 ? 'crimson' : 'royalblue'}
+    color: inputValue.length > 10 ? 'crimson' : 'royalblue',
   };
 
   return (
     <div className='widget-input container'>
       <h2>Input</h2>
-      <div id='output' style={style}></div> {/* STEP 3 */}
+      <div id='output' style={style}>{inputValue.toUpperCase()}</div> {/* STEP 3 */}
       <div>
         <input id='input' type='text' onChange={changeInput} value={inputValue}/> {/* STEP 6 */}
         <button id='resetInput' onClick={reset}>Reset</button>

@@ -21,16 +21,16 @@ const listOfSquareIds = ['sqA', 'sqB', 'sqC', 'sqD'];
 
 export default function Squares() {
 
-  const squares = useState(listOfSquareIds);
-  const activeSquare = useState(null);
+  const [squares] = useState(listOfSquareIds);
+  const [ activeSquare, setActiveSquare ] = useState(null);
   // Use the state hook twice, as we need two slices of state: 'squares' and
   // 'activeSquare'. One holds the _array_ of square ids, and the other keeps track
   // of the currently active square. On page load there's no active square,
   // so the value of 'activeSquare' should be null.
 
   const getClassName = id => {
-    if (id = activeSquare) {
-      return 'active'
+    if (id === activeSquare) {
+      return ' active'
     }
       else {
         return '';
@@ -43,9 +43,13 @@ export default function Squares() {
   };
 
   const markActive = id => {
-    if (id = activeSquare) {
-
+    if (id === activeSquare) {
+      const newActiveSquare = null;
+    } else {
+      const newActiveSquare = id;
+      setActiveSquare(newActiveSquare);
     }
+    
     // This is a helper used inside an _inlined_ click handler (see below).
     // Set the id argument to become the active id in state
     // (unless it already is, in which case we should reset
